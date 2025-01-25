@@ -1,10 +1,13 @@
-extends VBoxContainer
 
-@onready var samples_spinbox = $controls/samples_control/samples_spinbox
-@onready var volume_bar = $monitors/volume_monitor/volume_bar
-@onready var volume_value = $monitors/volume_monitor/volume_value
-@onready var bubble = $monitors/bubble
+extends Control
 
+@onready var recording_player = $recording_player
+@onready var mic_input = $mic_input
+@onready var bubble = $bubble
+
+var record_bus_index: int
+var record_effect: AudioEffectRecord
+var recording: AudioStreamWAV
 
 const MIN_DB: int = 80
 
@@ -14,28 +17,25 @@ var frequency_samples: Dictionary = {}
 var spectrum_analyzer: AudioEffectSpectrumAnalyzerInstance
 
 func _ready() -> void:
+	record_bus_index = AudioServer.get_bus_index('Record')
+	record_effect = AudioServer.get_bus_effect(record_bus_index, 0)
 	record_live_index = AudioServer.get_bus_index('Record')
 	spectrum_analyzer = AudioServer.get_bus_effect_instance(record_live_index, 1)
 
-
 func _process(_delta: float) -> void:
 	update_samples_strength()
-
 
 func update_samples_strength() -> void:
 	var sample = db_to_linear(AudioServer.get_bus_peak_volume_left_db(record_live_index, 0))
 	volume_samples.push_front(sample)
 
-	# Use a while loop that way the user can adjust the number of samples at runtime
-	# and remove as many as needed when the value changes
-	while volume_samples.size() > samples_spinbox.value:
+	# Maintain a rolling average for better stability
+	while volume_samples.size() > 10:  # Keep the last 10 samples
 		volume_samples.pop_back()
 
 	var sample_avg = average_array(volume_samples)
-	volume_value.text = '%sdb' % round(linear_to_db(sample_avg))
-	volume_bar.value = sample_avg
-	bubble.scale.x = -1*sample_avg
-	bubble.scale.y = -1*sample_avg
+	bubble.scale.x = -1 * sample_avg
+	bubble.scale.y = -1 * sample_avg
 
 func average_array(arr: Array) -> float:
 	var avg = 0.0
@@ -43,3 +43,7 @@ func average_array(arr: Array) -> float:
 		avg += arr[i]
 	avg /= arr.size()
 	return avg
+
+func get_audio_level() -> float:
+	# Return the average audio level for use by other scripts
+	return average_array(volume_samples)
