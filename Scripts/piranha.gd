@@ -10,8 +10,6 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	velocity.x = speed * direction  # Applique la vitesse en fonction de la direction
 	move_and_slide()
-	if velocity.x == 0:
-		direction *= -1
 
 func reset_position() -> void:
 	position = initial_position

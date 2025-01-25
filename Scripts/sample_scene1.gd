@@ -16,11 +16,14 @@ var volume_samples: Array = []
 var frequency_samples: Dictionary = {}
 var spectrum_analyzer: AudioEffectSpectrumAnalyzerInstance
 
+
 func _ready() -> void:
 	record_bus_index = AudioServer.get_bus_index('Record')
 	record_effect = AudioServer.get_bus_effect(record_bus_index, 1)
 	record_live_index = AudioServer.get_bus_index('Record')
 	spectrum_analyzer = AudioServer.get_bus_effect_instance(record_live_index, 2)
+	
+	
 
 func _process(_delta: float) -> void:
 	update_samples_strength()
@@ -47,3 +50,7 @@ func average_array(arr: Array) -> float:
 func get_audio_level() -> float:
 	# Return the average audio level for use by other scripts
 	return average_array(volume_samples)
+	
+func launch_fart():
+	if Input.is_action_just_pressed("ui_accept"):  # Vérifie si la touche Espace est pressée
+		pass
