@@ -17,9 +17,6 @@ func _process(delta) -> void:
 		if audio_level >= FART_THRESHOLD:
 			pass
 			fart()
-		
-	
-	
 
 func fart() -> void:
 	bubble = bubble_path.instantiate()
@@ -28,3 +25,8 @@ func fart() -> void:
 	bubble.rota = global_rotation
 	get_parent().add_child(bubble)
 	
+
+
+func _on_area_2d_body_entered(body):
+	if body.is_in_group("piranha"):  
+		body.reset_position()

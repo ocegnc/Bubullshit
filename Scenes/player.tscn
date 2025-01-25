@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bfac5nk1dcy4p"]
+[gd_scene load_steps=7 format=3 uid="uid://bfac5nk1dcy4p"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_2exws"]
 [ext_resource type="Texture2D" uid="uid://422eb5lpr0bu" path="res://Assets/woman_bubblebuttz_legs.png" id="2_otoeu"]
@@ -18,8 +18,11 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yblbf"]
+size = Vector2(57, 179)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qlmgx"]
-size = Vector2(57, 180)
+size = Vector2(61.625, 181.5)
 
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(-4, 0)
@@ -31,8 +34,16 @@ position = Vector2(9, -1)
 scale = Vector2(0.332645, 0.332645)
 sprite_frames = SubResource("SpriteFrames_cj1yr")
 
+[node name="Node2D" type="Node2D" parent="."]
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(7.5, 35)
+position = Vector2(7.5, 34.5)
+shape = SubResource("RectangleShape2D_yblbf")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(7.1875, 35.75)
 shape = SubResource("RectangleShape2D_qlmgx")
 
-[node name="Node2D" type="Node2D" parent="."]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

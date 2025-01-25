@@ -12,9 +12,7 @@ func _process(delta: float):
 	if Input.is_action_just_pressed("ui_accept"):
 		
 		position += direction * speed * delta
-	
-
 
 func _on_body_entered(body):
-	if body.is_in_group("piranha"):
+	if body.is_in_group("piranha"):                                             
 		body.reset_position()
