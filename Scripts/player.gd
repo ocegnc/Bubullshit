@@ -30,3 +30,4 @@ func fart() -> void:
 func _on_area_2d_body_entered(body):
 	if body.is_in_group("piranha"):  
 		body.reset_position()
+		health = health -1

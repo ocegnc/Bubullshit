@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://rfwlribge6v0"]
+[gd_scene load_steps=6 format=3 uid="uid://rfwlribge6v0"]
 
 [ext_resource type="PackedScene" uid="uid://bfac5nk1dcy4p" path="res://Scenes/player.tscn" id="1_2xf6h"]
+[ext_resource type="Texture2D" uid="uid://c8mc50j7a10u8" path="res://Assets/background_bubblebuttz_latest.png" id="1_tte5k"]
 [ext_resource type="PackedScene" uid="uid://b3tsdb5k35j3q" path="res://Scenes/piranha.tscn" id="2_1qekh"]
 [ext_resource type="PackedScene" uid="uid://w2kwt5tw57c2" path="res://Scenes/sample_scene.tscn" id="3_yvscu"]
 
@@ -9,13 +10,19 @@
 [node name="Game" type="Node2D"]
 position = Vector2(0, 16)
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -2)
+scale = Vector2(0.417969, 0.417969)
+texture = ExtResource("1_tte5k")
+
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Player1" parent="." instance=ExtResource("1_2xf6h")]
-position = Vector2(-472, 5)
+position = Vector2(-166, 96)
 
 [node name="Piranha" parent="." instance=ExtResource("2_1qekh")]
-position = Vector2(456, -6)
+position = Vector2(457, 103)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(0, -2)
@@ -28,9 +35,9 @@ shape = SubResource("WorldBoundaryShape2D_kuwt8")
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = -468.0
-offset_top = 1.0
-offset_right = -468.0
-offset_bottom = 1.0
+offset_left = -165.0
+offset_top = 96.0
+offset_right = -165.0
+offset_bottom = 96.0
 grow_horizontal = 1
 grow_vertical = 1
