@@ -51,6 +51,3 @@ func get_audio_level() -> float:
 	# Return the average audio level for use by other scripts
 	return average_array(volume_samples)
 	
-func launch_fart():
-	if Input.is_action_just_pressed("ui_accept"):  # Vérifie si la touche Espace est pressée
-		pass
