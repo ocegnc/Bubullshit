@@ -26,8 +26,8 @@ script = ExtResource("1_g8bl1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(-1, 3)
-scale = Vector2(0.0442708, 0.0442708)
+position = Vector2(-9.53674e-07, 3)
+scale = Vector2(0.0559896, 0.0559896)
 sprite_frames = SubResource("SpriteFrames_i2awx")
 frame_progress = 0.57375
 
