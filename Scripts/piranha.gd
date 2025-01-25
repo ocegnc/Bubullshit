@@ -8,8 +8,8 @@ var direction = 1 #Start to the right
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
-	if not is_on_floor():
-		velocity += get_gravity() * delta
+	#if not is_on_floor():
+		#velocity += get_gravity() * delta
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -23,6 +23,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 
+	
 
-func _on_area_2d_area_entered(area: Area2D) -> void:
+func _on_animated_sprite_2d_animation_changed() -> void:
 	direction *= -1  # Inverse direction
