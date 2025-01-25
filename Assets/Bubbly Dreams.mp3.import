@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://becvgxqx6ahly"
+path="res://.godot/imported/Bubbly Dreams.mp3-715297b3a780755bf5fb30a17ab80e34.mp3str"
+
+[deps]
+
+source_file="res://Assets/Bubbly Dreams.mp3"
+dest_files=["res://.godot/imported/Bubbly Dreams.mp3-715297b3a780755bf5fb30a17ab80e34.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
