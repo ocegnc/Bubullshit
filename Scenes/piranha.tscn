@@ -18,19 +18,24 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_kpvkf"]
-radius = 8.06226
+[sub_resource type="CircleShape2D" id="CircleShape2D_wn3vx"]
+radius = 7.0
 
 [node name="Piranha" type="CharacterBody2D"]
 script = ExtResource("1_g8bl1")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["piranha"]]
 texture_filter = 1
-position = Vector2(-9.53674e-07, 3)
+position = Vector2(1, 3)
 scale = Vector2(0.0559896, 0.0559896)
 sprite_frames = SubResource("SpriteFrames_i2awx")
 frame_progress = 0.57375
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 3)
-shape = SubResource("CircleShape2D_kpvkf")
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(10.6103, 3.18687)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" groups=["piranha"]]
+position = Vector2(-10.6103, -0.186874)
+shape = SubResource("CircleShape2D_wn3vx")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

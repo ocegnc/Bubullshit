@@ -22,5 +22,7 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 	
-	if get_slide_collision_count()>0:  
-			direction *= -1  # Inverse direction
+
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	direction *= -1  # Inverse direction
