@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://rfwlribge6v0"]
 
 [ext_resource type="PackedScene" uid="uid://bfac5nk1dcy4p" path="res://Scenes/player.tscn" id="1_2xf6h"]
-[ext_resource type="PackedScene" uid="uid://cf5vxqgivp7il" path="res://Scenes/piranha.tscn" id="2_1qekh"]
+[ext_resource type="PackedScene" uid="uid://b3tsdb5k35j3q" path="res://Scenes/piranha.tscn" id="2_1qekh"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kuwt8"]
 

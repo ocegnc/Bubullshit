@@ -1,8 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://bfac5nk1dcy4p"]
+[gd_scene load_steps=3 format=3 uid="uid://bfac5nk1dcy4p"]
+
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_2exws"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_cj1yr"]
 
 [node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_2exws")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_cj1yr")
