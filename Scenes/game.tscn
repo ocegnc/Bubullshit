@@ -6,6 +6,7 @@
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kuwt8"]
 
 [node name="Game" type="Node2D"]
+position = Vector2(0, 16)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
@@ -13,13 +14,13 @@
 position = Vector2(-552, 3)
 
 [node name="Piranha" parent="." instance=ExtResource("2_1qekh")]
-position = Vector2(-91, 106)
+position = Vector2(0, -2)
 
 [node name="Player2" parent="." instance=ExtResource("1_2xf6h")]
 position = Vector2(563, 2)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(-91, 106)
+position = Vector2(0, -2)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(0, -10)
