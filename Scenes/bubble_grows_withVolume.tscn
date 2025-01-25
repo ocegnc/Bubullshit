@@ -1,16 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://w2kwt5tw57c2"]
+[gd_scene load_steps=5 format=3 uid="uid://w2kwt5tw57c2"]
 
-[ext_resource type="Theme" uid="uid://brb45hn2jsudt" path="res://ui/ui_theme.tres" id="2_u473u"]
-[ext_resource type="Script" path="res://src/sample_scene.gd" id="3_k5lqr"]
-[ext_resource type="Script" path="res://src/live_audio.gd" id="5_gjlcv"]
-[ext_resource type="Texture2D" uid="uid://3kh6bcpag5in" path="res://ui/bar/background.png" id="6_gnakr"]
-[ext_resource type="Texture2D" uid="uid://ckoudd5vnjchs" path="res://ui/bar/foreground.png" id="7_ern5s"]
-[ext_resource type="Texture2D" uid="uid://dx445m2tb40pr" path="res://ui/bubble/bubble.png" id="8_t6uwe"]
+[ext_resource type="Script" path="res://Scripts/sample_scene.gd" id="1_0d87x"]
+[ext_resource type="Texture2D" uid="uid://b3ba126bosape" path="res://Assets/background.png" id="1_t6dsg"]
+[ext_resource type="Script" path="res://Scripts/live_audio.gd" id="2_gqgln"]
 
 [sub_resource type="AudioStreamMicrophone" id="1"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_mle77"]
-radius = 164.247
 
 [node name="sample_scene" type="Control"]
 layout_mode = 3
@@ -27,13 +21,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("2_u473u")
-script = ExtResource("3_k5lqr")
+script = ExtResource("1_0d87x")
 
 [node name="mic_input" type="AudioStreamPlayer" parent="content"]
 stream = SubResource("1")
 autoplay = true
-bus = &"Record"
 
 [node name="recording_player" type="AudioStreamPlayer" parent="content"]
 
@@ -43,7 +35,7 @@ layout_mode = 2
 [node name="live_audio" type="VBoxContainer" parent="content/ui"]
 layout_mode = 2
 size_flags_horizontal = 3
-script = ExtResource("5_gjlcv")
+script = ExtResource("2_gqgln")
 
 [node name="controls" type="HBoxContainer" parent="content/ui/live_audio"]
 layout_mode = 2
@@ -98,8 +90,7 @@ stretch_margin_left = 20
 stretch_margin_top = 20
 stretch_margin_right = 20
 stretch_margin_bottom = 20
-texture_under = ExtResource("6_gnakr")
-texture_progress = ExtResource("7_ern5s")
+texture_under = ExtResource("1_t6dsg")
 
 [node name="volume_value" type="Label" parent="content/ui/live_audio/monitors/volume_monitor"]
 layout_mode = 2
@@ -110,17 +101,5 @@ horizontal_alignment = 1
 layout_mode = 2
 text = "Approx. Volume"
 horizontal_alignment = 1
-
-[node name="bubble" type="Area2D" parent="content/ui/live_audio/monitors"]
-position = Vector2(262, 269)
-
-[node name="Sprite2D" type="Sprite2D" parent="content/ui/live_audio/monitors/bubble"]
-position = Vector2(0, 1)
-texture = ExtResource("8_t6uwe")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="content/ui/live_audio/monitors/bubble"]
-position = Vector2(0, -1)
-shape = SubResource("CircleShape2D_mle77")
-debug_color = Color(0.940565, 0.133528, 0.512862, 0.42)
 
 [connection signal="value_changed" from="content/ui/live_audio/controls/amplification_control/amp_spinbox" to="content" method="_on_amp_spinbox_value_changed"]
