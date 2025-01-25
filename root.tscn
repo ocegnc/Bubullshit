@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://bqhpx1kk0p5fd"]
+
+[ext_resource type="Texture2D" path="C:\Users\oce_g\OneDrive\Documents\bubullshit\Assets\gaugeBackground.jpeg" id="1_qqvum"]
+
+[node name="Root" type="Node2D"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="GaugeBackground" type="TextureRect" parent="Control"]
+layout_mode = 0
+offset_right = 43.0
+offset_bottom = 41.0
+texture = ExtResource("1_qqvum")
