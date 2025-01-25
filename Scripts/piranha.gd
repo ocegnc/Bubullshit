@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var speed = 200.0
+var speed = -200.0
 var direction = 1  # 1 pour aller à droite, -1 pour aller à gauche
 
 func _physics_process(delta: float) -> void:

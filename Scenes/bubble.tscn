@@ -3,12 +3,12 @@
 [ext_resource type="Texture2D" uid="uid://dm6g4ty7sw8ah" path="res://Assets/bubble.png" id="2_n3dsm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_x3rsg"]
-radius = 168.077
+radius = 108.005
 
 [node name="bubble" type="Area2D"]
-position = Vector2(1130, 191)
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
+scale = Vector2(0.644809, 0.644809)
 texture = ExtResource("2_n3dsm")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]

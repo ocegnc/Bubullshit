@@ -6,7 +6,7 @@ extends Control
 @onready var bubble = $bubble
 
 var record_bus_index: int
-var record_effect
+var record_effect: AudioEffectRecord
 var recording: AudioStreamWAV
 
 const MIN_DB: int = 80
@@ -14,13 +14,13 @@ const MIN_DB: int = 80
 var record_live_index: int
 var volume_samples: Array = []
 var frequency_samples: Dictionary = {}
-var spectrum_analyzer
+var spectrum_analyzer: AudioEffectSpectrumAnalyzerInstance
 
 func _ready() -> void:
 	record_bus_index = AudioServer.get_bus_index('Record')
-	record_effect = AudioServer.get_bus_effect(record_bus_index, 0)
+	record_effect = AudioServer.get_bus_effect(record_bus_index, 1)
 	record_live_index = AudioServer.get_bus_index('Record')
-	spectrum_analyzer = AudioServer.get_bus_effect_instance(record_live_index, 1)
+	spectrum_analyzer = AudioServer.get_bus_effect_instance(record_live_index, 2)
 
 func _process(_delta: float) -> void:
 	update_samples_strength()
