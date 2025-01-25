@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://c17synu3hy56y"]
+
+[ext_resource type="Script" path="res://Scripts/bubble.gd" id="1_6h1le"]
+[ext_resource type="Texture2D" uid="uid://6wh0j6odfkve" path="res://Assets/bubble.png" id="2_n3dsm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_05j8h"]
+atlas = ExtResource("2_n3dsm")
+region = Rect2(0, 0, 1376, 768)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dqr4m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_05j8h")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_thnak"]
+radius = 58.6941
+
+[node name="Bubble" type="CharacterBody2D"]
+position = Vector2(0, 1)
+script = ExtResource("1_6h1le")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(4.99997, 4.00002)
+scale = Vector2(0.393229, 0.393229)
+sprite_frames = SubResource("SpriteFrames_dqr4m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(7, -5)
+shape = SubResource("CircleShape2D_thnak")
