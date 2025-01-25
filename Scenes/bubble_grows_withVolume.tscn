@@ -1,0 +1,126 @@
+[gd_scene load_steps=9 format=3 uid="uid://w2kwt5tw57c2"]
+
+[ext_resource type="Theme" uid="uid://brb45hn2jsudt" path="res://ui/ui_theme.tres" id="2_u473u"]
+[ext_resource type="Script" path="res://src/sample_scene.gd" id="3_k5lqr"]
+[ext_resource type="Script" path="res://src/live_audio.gd" id="5_gjlcv"]
+[ext_resource type="Texture2D" uid="uid://3kh6bcpag5in" path="res://ui/bar/background.png" id="6_gnakr"]
+[ext_resource type="Texture2D" uid="uid://ckoudd5vnjchs" path="res://ui/bar/foreground.png" id="7_ern5s"]
+[ext_resource type="Texture2D" uid="uid://dx445m2tb40pr" path="res://ui/bubble/bubble.png" id="8_t6uwe"]
+
+[sub_resource type="AudioStreamMicrophone" id="1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mle77"]
+radius = 164.247
+
+[node name="sample_scene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="content" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_u473u")
+script = ExtResource("3_k5lqr")
+
+[node name="mic_input" type="AudioStreamPlayer" parent="content"]
+stream = SubResource("1")
+autoplay = true
+bus = &"Record"
+
+[node name="recording_player" type="AudioStreamPlayer" parent="content"]
+
+[node name="ui" type="HBoxContainer" parent="content"]
+layout_mode = 2
+
+[node name="live_audio" type="VBoxContainer" parent="content/ui"]
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("5_gjlcv")
+
+[node name="controls" type="HBoxContainer" parent="content/ui/live_audio"]
+layout_mode = 2
+
+[node name="samples_control" type="HBoxContainer" parent="content/ui/live_audio/controls"]
+layout_mode = 2
+
+[node name="samples_label" type="Label" parent="content/ui/live_audio/controls/samples_control"]
+layout_mode = 2
+text = "Samples"
+horizontal_alignment = 1
+
+[node name="samples_spinbox" type="SpinBox" parent="content/ui/live_audio/controls/samples_control"]
+layout_mode = 2
+min_value = 1.0
+max_value = 50.0
+value = 10.0
+rounded = true
+
+[node name="amplification_control" type="HBoxContainer" parent="content/ui/live_audio/controls"]
+layout_mode = 2
+
+[node name="amp_label" type="Label" parent="content/ui/live_audio/controls/amplification_control"]
+layout_mode = 2
+text = "Amplification"
+horizontal_alignment = 1
+
+[node name="amp_spinbox" type="SpinBox" parent="content/ui/live_audio/controls/amplification_control"]
+layout_mode = 2
+max_value = 5.0
+step = 0.2
+value = 1.0
+
+[node name="monitors" type="HBoxContainer" parent="content/ui/live_audio"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="volume_monitor" type="VBoxContainer" parent="content/ui/live_audio/monitors"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="volume_bar" type="TextureProgressBar" parent="content/ui/live_audio/monitors/volume_monitor"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+max_value = 1.0
+step = 0.01
+fill_mode = 4
+nine_patch_stretch = true
+stretch_margin_left = 20
+stretch_margin_top = 20
+stretch_margin_right = 20
+stretch_margin_bottom = 20
+texture_under = ExtResource("6_gnakr")
+texture_progress = ExtResource("7_ern5s")
+
+[node name="volume_value" type="Label" parent="content/ui/live_audio/monitors/volume_monitor"]
+layout_mode = 2
+text = "0.0db"
+horizontal_alignment = 1
+
+[node name="volume_label" type="Label" parent="content/ui/live_audio/monitors/volume_monitor"]
+layout_mode = 2
+text = "Approx. Volume"
+horizontal_alignment = 1
+
+[node name="bubble" type="Area2D" parent="content/ui/live_audio/monitors"]
+position = Vector2(262, 269)
+
+[node name="Sprite2D" type="Sprite2D" parent="content/ui/live_audio/monitors/bubble"]
+position = Vector2(0, 1)
+texture = ExtResource("8_t6uwe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="content/ui/live_audio/monitors/bubble"]
+position = Vector2(0, -1)
+shape = SubResource("CircleShape2D_mle77")
+debug_color = Color(0.940565, 0.133528, 0.512862, 0.42)
+
+[connection signal="value_changed" from="content/ui/live_audio/controls/amplification_control/amp_spinbox" to="content" method="_on_amp_spinbox_value_changed"]
