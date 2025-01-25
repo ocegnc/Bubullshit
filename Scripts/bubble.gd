@@ -10,11 +10,6 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float):
-<<<<<<< HEAD
-	if Input.is_action_just_pressed("ui_accept"):
-		
-		position += direction * speed * delta
-=======
 	# Si la touche espace est appuyée, on commence à déplacer la bulle
 	if Input.is_action_just_pressed("ui_accept") and not moving:
 		moving = true  # On commence à déplacer la bulle
@@ -36,14 +31,9 @@ func _process(delta: float):
 			moving = false  # Arrêter le mouvement
 			
 
->>>>>>> d38b30765652a11fb8347103b00ff5a3cc7c263c
 
 # Fonction de gestion des collisions avec un piranha
 func _on_body_entered(body):
-<<<<<<< HEAD
-	if body.is_in_group("piranha"):                                             
-		body.reset_position()
-=======
 	# Vérifie si l'objet qui entre en collision est un piranha
 	if body.is_in_group("piranha"):
 		body.reset_position()  # Réinitialise la position du piranha
@@ -51,4 +41,3 @@ func _on_body_entered(body):
 		speed = 0
 		
 	
->>>>>>> d38b30765652a11fb8347103b00ff5a3cc7c263c

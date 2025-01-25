@@ -37,6 +37,7 @@ func update_samples_strength() -> void:
 		volume_samples.pop_back()
 
 	var sample_avg = average_array(volume_samples)
+	
 	bubble.scale.x = -1 * sample_avg
 	bubble.scale.y = -1 * sample_avg
 
