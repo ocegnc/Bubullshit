@@ -19,7 +19,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qlmgx"]
-size = Vector2(24, 30)
+size = Vector2(57, 180)
 
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(-4, 0)
@@ -32,7 +32,7 @@ scale = Vector2(0.332645, 0.332645)
 sprite_frames = SubResource("SpriteFrames_cj1yr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(2, 3)
+position = Vector2(7.5, 35)
 shape = SubResource("RectangleShape2D_qlmgx")
 
 [node name="Node2D" type="Node2D" parent="."]

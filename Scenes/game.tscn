@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://rfwlribge6v0"]
 
 [ext_resource type="PackedScene" uid="uid://bfac5nk1dcy4p" path="res://Scenes/player.tscn" id="1_2xf6h"]
-[ext_resource type="PackedScene" uid="uid://cf5vxqgivp7il" path="res://Scenes/piranha.tscn" id="2_1qekh"]
+[ext_resource type="PackedScene" uid="uid://b3tsdb5k35j3q" path="res://Scenes/piranha.tscn" id="2_1qekh"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kuwt8"]
 
@@ -11,24 +11,16 @@ position = Vector2(0, 16)
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Player1" parent="." instance=ExtResource("1_2xf6h")]
-position = Vector2(-423, -8)
+position = Vector2(-552, 3)
 
 [node name="Piranha" parent="." instance=ExtResource("2_1qekh")]
-<<<<<<< HEAD
 position = Vector2(0, -2)
-=======
-position = Vector2(0, 12)
->>>>>>> 2b728433431468ea193d264129d6db6f7fe4789b
 
 [node name="Player2" parent="." instance=ExtResource("1_2xf6h")]
-position = Vector2(419, -13)
+position = Vector2(563, 2)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-<<<<<<< HEAD
 position = Vector2(0, -2)
-=======
-position = Vector2(0, 12)
->>>>>>> 2b728433431468ea193d264129d6db6f7fe4789b
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(0, -10)
