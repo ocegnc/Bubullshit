@@ -1,17 +1,17 @@
 [gd_scene load_steps=6 format=3 uid="uid://bfac5nk1dcy4p"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_2exws"]
-[ext_resource type="Texture2D" uid="uid://cdj6djosekiqp" path="res://Assets/slime_purple.png" id="2_s8w3y"]
+[ext_resource type="Texture2D" uid="uid://422eb5lpr0bu" path="res://Assets/woman_bubblebuttz_legs.png" id="2_otoeu"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_epcux"]
-atlas = ExtResource("2_s8w3y")
-region = Rect2(0, 54, 24, 18)
+[sub_resource type="AtlasTexture" id="AtlasTexture_wd8jn"]
+atlas = ExtResource("2_otoeu")
+region = Rect2(0, 0, 484, 1394)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_cj1yr"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_epcux")
+"texture": SubResource("AtlasTexture_wd8jn")
 }],
 "loop": true,
 "name": &"default",
@@ -22,11 +22,13 @@ animations = [{
 size = Vector2(24, 30)
 
 [node name="Player" type="CharacterBody2D"]
+position = Vector2(-4, 0)
 script = ExtResource("1_2exws")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-scale = Vector2(2, 2)
+position = Vector2(9, -1)
+scale = Vector2(0.332645, 0.332645)
 sprite_frames = SubResource("SpriteFrames_cj1yr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

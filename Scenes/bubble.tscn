@@ -21,7 +21,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_thnak"]
 radius = 58.6941
 
-[node name="Bubble" type="CharacterBody2D"]
+[node name="Bubble1" type="CharacterBody2D"]
 position = Vector2(0, 1)
 script = ExtResource("1_6h1le")
 
