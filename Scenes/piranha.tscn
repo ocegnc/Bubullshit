@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 [gd_scene load_steps=6 format=3 uid="uid://cf5vxqgivp7il"]
+=======
+[gd_scene load_steps=7 format=3 uid="uid://b3tsdb5k35j3q"]
+>>>>>>> 78f7c8fe7a461fdb7a477b0cf096e3205fcee2f0
 
 [ext_resource type="Script" path="res://Scripts/piranha.gd" id="1_g8bl1"]
 [ext_resource type="Texture2D" uid="uid://oruki1o5g1en" path="res://Assets/piranha.png" id="2_fef1m"]
@@ -18,6 +22,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_nm0at"]
+radius = 7.0
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_wn3vx"]
 radius = 14.0
 
@@ -31,11 +38,21 @@ scale = Vector2(0.0904948, 0.0904948)
 sprite_frames = SubResource("SpriteFrames_i2awx")
 frame_progress = 0.57375
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, 4)
+shape = SubResource("CircleShape2D_nm0at")
+
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(10.6103, 3.18687)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" groups=["piranha"]]
+<<<<<<< HEAD
 position = Vector2(-10.6103, -2.18687)
+=======
+position = Vector2(-10.6103, 0.813126)
+>>>>>>> 78f7c8fe7a461fdb7a477b0cf096e3205fcee2f0
 shape = SubResource("CircleShape2D_wn3vx")
 
+[connection signal="animation_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_changed"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
