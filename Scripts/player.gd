@@ -8,10 +8,8 @@ var bubble_path=preload("res://Scenes/bubble.tscn")
 func _ready() -> void:
 	pass # Replace with function body.
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	look_at(get_global_mouse_position())
 	if Input.is_action_just_pressed("ui_accept"):
 		fart()
 
