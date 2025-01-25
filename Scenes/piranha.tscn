@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://cf5vxqgivp7il"]
+
+[node name="Piranha" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
