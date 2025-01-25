@@ -15,7 +15,7 @@ position = Vector2(0, 16)
 position = Vector2(-472, 5)
 
 [node name="Piranha" parent="." instance=ExtResource("2_1qekh")]
-position = Vector2(0, -4)
+position = Vector2(456, -6)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(0, -2)
