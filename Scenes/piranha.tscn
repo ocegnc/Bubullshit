@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cf5vxqgivp7il"]
+[gd_scene load_steps=6 format=3 uid="uid://b3tsdb5k35j3q"]
 
 [ext_resource type="Script" path="res://Scripts/piranha.gd" id="1_g8bl1"]
 [ext_resource type="Texture2D" uid="uid://oruki1o5g1en" path="res://Assets/piranha.png" id="2_fef1m"]

@@ -1,24 +1,22 @@
 [gd_scene load_steps=4 format=3 uid="uid://rfwlribge6v0"]
 
 [ext_resource type="PackedScene" uid="uid://bfac5nk1dcy4p" path="res://Scenes/player.tscn" id="1_2xf6h"]
-[ext_resource type="PackedScene" uid="uid://cf5vxqgivp7il" path="res://Scenes/piranha.tscn" id="2_1qekh"]
+[ext_resource type="PackedScene" uid="uid://b3tsdb5k35j3q" path="res://Scenes/piranha.tscn" id="2_1qekh"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kuwt8"]
 
 [node name="Game" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(1, 0)
-scale = Vector2(-48.0748, -111112)
 
 [node name="Player1" parent="." instance=ExtResource("1_2xf6h")]
-position = Vector2(34, 28)
+position = Vector2(-552, 3)
 
 [node name="Piranha" parent="." instance=ExtResource("2_1qekh")]
-position = Vector2(-89, 98)
+position = Vector2(-91, 106)
 
 [node name="Player2" parent="." instance=ExtResource("1_2xf6h")]
-position = Vector2(-330, 52)
+position = Vector2(563, 2)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(-91, 106)
