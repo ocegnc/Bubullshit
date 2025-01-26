@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://rfwlribge6v0"]
+[gd_scene load_steps=11 format=3 uid="uid://rfwlribge6v0"]
 
 [ext_resource type="PackedScene" uid="uid://bfac5nk1dcy4p" path="res://Scenes/player.tscn" id="1_2xf6h"]
 [ext_resource type="Texture2D" uid="uid://c8mc50j7a10u8" path="res://Assets/background_bubblebuttz_latest.png" id="1_tte5k"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://du4oxux7xur35" path="res://Scenes/screen_play.tscn" id="5_4w8qf"]
 [ext_resource type="Texture2D" uid="uid://dud4t0x2jqjee" path="res://Assets/heart_icon.png" id="6_wxoue"]
 [ext_resource type="PackedScene" uid="uid://do7pwycq2d3nv" path="res://Scenes/poop.tscn" id="7_dvm6d"]
+[ext_resource type="AudioStream" uid="uid://becvgxqx6ahly" path="res://Assets/Bubbly Dreams.mp3" id="8_cioj4"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kuwt8"]
 
@@ -41,15 +42,10 @@ position = Vector2(457, 147)
 shape = SubResource("WorldBoundaryShape2D_kuwt8")
 
 [node name="sample_scene" parent="." instance=ExtResource("3_yvscu")]
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
 offset_left = -357.0
 offset_top = 134.0
 offset_right = -357.0
 offset_bottom = 134.0
-grow_horizontal = 1
-grow_vertical = 1
 
 [node name="Node2D" type="Node2D" parent="."]
 
@@ -120,3 +116,8 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="poop" parent="." instance=ExtResource("7_dvm6d")]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_cioj4")
+volume_db = -26.0
+autoplay = true

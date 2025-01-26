@@ -12,6 +12,7 @@ var frozen_bubble_scale: Vector2 = Vector2.ONE  # Stocke la taille gelée de la 
 @onready var bubble = $bubble
 
 
+
 var record_bus_index: int
 var record_effect
 var recording: AudioStreamWAV
@@ -45,6 +46,7 @@ func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept") and not moving:  # "ui_accept" is mapped to the spacebar by default
 		press_space_to_froze_scale()
 		press_space_to_release()
+		$AudioStreamPlayer2D.play()
 	# Si la bulle est en mouvement, la déplacer vers la cible
 	if moving:
 		# Calculer la direction vers la position cible
