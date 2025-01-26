@@ -11,7 +11,6 @@ var record_effect
 var recording: AudioStreamWAV
 var is_bubble_frozen: bool = false  # Track if the bubble size is frozen
 var frozen_bubble_scale: Vector2 = Vector2.ONE  # Store the frozen size of the bubble
-var last_position: Vector2 
 
 
 func _ready() -> void:
@@ -34,20 +33,17 @@ var spectrum_analyzer
 
 #func _process(_delta: float) -> void:
 	#update_samples_strength()
-
-	
 	
 	
 func _process(_delta: float) -> void:
 	# Detect spacebar press to toggle freeze
-	if last_position!=bubble.position and bubble.position== Vector2.ZERO :
-		print("return at the begining")
-	if Input.is_action_just_pressed("ui_accept") and last_position!=bubble.position:  # "ui_accept" is mapped to the spacebar by default
+	if Input.is_action_just_pressed("ui_accept"):  # "ui_accept" is mapped to the spacebar by default
 		toggle_bubble_freeze()
 
 	# Only update the bubble size if it's not frozen
 	if not is_bubble_frozen:
 		update_samples_strength()
+
 
 
 func update_samples_strength() -> void:
@@ -86,4 +82,3 @@ func toggle_bubble_freeze() -> void:
 	else:
 		# Restore the current size if unfreezing
 		bubble.scale = frozen_bubble_scale
-#		bubble.scale = Vector2(0,0)
