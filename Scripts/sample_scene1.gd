@@ -4,6 +4,9 @@ extends Control
 @onready var recording_player = $recording_player
 @onready var mic_input = $mic_input
 @onready var bubble = $bubble
+@onready var turd_scene = preload("res://Assets/poop.png")  # Preload the turd scene (make sure to replace this with your actual turd scene path)
+@onready var turd_parent = $TurdParent  # The parent node to spawn the turd
+
 
 
 var record_bus_index: int
@@ -12,6 +15,7 @@ var recording: AudioStreamWAV
 var is_bubble_frozen: bool = false  # Track if the bubble size is frozen
 var frozen_bubble_scale: Vector2 = Vector2.ONE  # Store the frozen size of the bubble
 var last_position: Vector2 
+var max_bubble_scale: float = 0.5  # The maximum scale at which the bubble will drop a turd
 
 
 func _ready() -> void:
@@ -48,6 +52,10 @@ func _process(_delta: float) -> void:
 	# Only update the bubble size if it's not frozen
 	if not is_bubble_frozen:
 		update_samples_strength()
+		
+	# Check if the bubble is too big and spawn a turd if it is
+	if bubble.scale.x > max_bubble_scale:
+		spawn_turd()
 
 
 func update_samples_strength() -> void:
@@ -87,3 +95,17 @@ func toggle_bubble_freeze() -> void:
 		# Restore the current size if unfreezing
 		bubble.scale = frozen_bubble_scale
 #		bubble.scale = Vector2(0,0)
+
+# New function to spawn a turd when the bubble gets too big
+func spawn_turd() -> void:
+	# Create a new instance of the "Turd" node
+	var turd_instance = turd_scene.instantiate()
+
+	# Set the position where the turd will spawn (e.g., below the bubble)
+	turd_instance.position = bubble.position + Vector2(0, 50)  # Adjust the Y value for desired distance
+
+	# Add the turd to the parent node
+	turd_parent.add_child(turd_instance)
+
+	# Reset the bubble size after dropping the turd (or leave it as is)
+	bubble.scale = Vector2(1, 1)  # Reset the bubble's scale, you can adjust this if you want to keep the size
