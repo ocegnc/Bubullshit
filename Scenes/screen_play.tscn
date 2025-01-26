@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://du4oxux7xur35"]
+
+[ext_resource type="Script" path="res://Scripts/menu_button.gd" id="2_nvh5g"]
+[ext_resource type="Texture2D" uid="uid://ba1oro401c8ha" path="res://Assets/bubbulshitt_playscreen.png" id="2_x84dl"]
+
+[node name="ScreenPlay" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(575.916, 323.988)
+scale = Vector2(0.418666, 0.421891)
+texture = ExtResource("2_x84dl")
+
+[node name="MenuButton" type="MenuButton" parent="."]
+offset_right = 1564.0
+offset_bottom = 672.0
+script = ExtResource("2_nvh5g")
