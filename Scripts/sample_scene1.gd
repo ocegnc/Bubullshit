@@ -48,6 +48,7 @@ func _process(_delta: float) -> void:
 	# Si la bulle est en mouvement, la déplacer vers la cible
 	if moving:
 		# Calculer la direction vers la position cible
+		
 		var direction_to_target = target_position - position
 		var distance_to_target = direction_to_target.length()
 
@@ -96,7 +97,7 @@ func _on_amp_spinbox_value_changed(value: float) -> void:
 # New function to toggle freezing the bubble's size
 func press_space_to_froze_scale() -> void:
 	#is_bubble_frozen = not is_bubble_frozen
-	is_bubble_scale_frozen!=is_bubble_scale_frozen
+	is_bubble_scale_frozen = true
 	if is_bubble_scale_frozen==true:
 		# Store the current scale of the bubble when freezing
 		frozen_bubble_scale = bubble.scale
@@ -128,6 +129,10 @@ func _on_body_entered(body):
 			
 			body.reset_position()  # Réinitialiser la position du piranha
 			moving = false
+			is_bubble_scale_frozen = false
 			position = Vector2(-357, 134)  # Reset the bubble's position
+			bubble.scale=Vector2.ZERO
+			volume_samples=[]
+			
 			
 		
