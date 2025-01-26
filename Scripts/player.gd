@@ -3,6 +3,7 @@ extends CharacterBody2D
 var health = 3
 const MAX_HEALTH = 3
 
+var new_scene: PackedScene = preload("res://Scenes/game.tscn")
 const POSITION = 1000
 var bubble_path = preload("res://Scenes/sample_scene.tscn")
 var bubble
@@ -65,6 +66,9 @@ func _on_area_2d_body_entered(body):
 		life_lost()
 
 func game_over() -> void:
-	get_parent().get_node("CanvasLayer/GameOverScreen").visible = true
+	var game_over_screen = get_parent().get_node("CanvasLayer/GameOverScreen")
+	game_over_screen.visible = true
+	
 	await get_tree().create_timer(2.0).timeout
-	get_tree().reload_current_scene()
+	
+	get_tree().change_scene(new_scene)
