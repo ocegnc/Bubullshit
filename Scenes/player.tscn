@@ -1,17 +1,17 @@
 [gd_scene load_steps=7 format=3 uid="uid://bfac5nk1dcy4p"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_2exws"]
-[ext_resource type="Texture2D" uid="uid://422eb5lpr0bu" path="res://Assets/woman_bubblebuttz_legs.png" id="2_otoeu"]
+[ext_resource type="Texture2D" uid="uid://36mhcb8w4k7m" path="res://Assets/woman_bubblebuttz.png" id="2_r2rp5"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wd8jn"]
-atlas = ExtResource("2_otoeu")
-region = Rect2(0, 0, 484, 1394)
+[sub_resource type="AtlasTexture" id="AtlasTexture_tr3lt"]
+atlas = ExtResource("2_r2rp5")
+region = Rect2(0, 0, 484, 1006)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_cj1yr"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_wd8jn")
+"texture": SubResource("AtlasTexture_tr3lt")
 }],
 "loop": true,
 "name": &"default",
@@ -30,8 +30,8 @@ script = ExtResource("1_2exws")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(9, -1)
-scale = Vector2(0.332645, 0.332645)
+position = Vector2(9, 30)
+scale = Vector2(0.222108, 0.222108)
 sprite_frames = SubResource("SpriteFrames_cj1yr")
 
 [node name="Node2D" type="Node2D" parent="."]
