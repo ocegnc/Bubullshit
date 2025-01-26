@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://rfwlribge6v0"]
+[gd_scene load_steps=8 format=3 uid="uid://rfwlribge6v0"]
 
 [ext_resource type="PackedScene" uid="uid://bfac5nk1dcy4p" path="res://Scenes/player.tscn" id="1_2xf6h"]
 [ext_resource type="Texture2D" uid="uid://c8mc50j7a10u8" path="res://Assets/background_bubblebuttz_latest.png" id="1_tte5k"]
 [ext_resource type="PackedScene" uid="uid://b3tsdb5k35j3q" path="res://Scenes/piranha.tscn" id="2_1qekh"]
 [ext_resource type="PackedScene" uid="uid://w2kwt5tw57c2" path="res://Scenes/sample_scene.tscn" id="3_yvscu"]
 [ext_resource type="PackedScene" uid="uid://du4oxux7xur35" path="res://Scenes/screen_play.tscn" id="5_4w8qf"]
+[ext_resource type="Texture2D" uid="uid://dud4t0x2jqjee" path="res://Assets/heart_icon.png" id="6_wxoue"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kuwt8"]
 
@@ -48,3 +49,48 @@ grow_horizontal = 1
 grow_vertical = 1
 
 [node name="Node2D" type="Node2D" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -392.5
+offset_top = -115.5
+offset_right = 392.5
+offset_bottom = 115.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.2, 0.2)
+size_flags_horizontal = 4
+size_flags_vertical = 0
+alignment = 1
+
+[node name="Heart" type="TextureRect" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("6_wxoue")
+
+[node name="Heart2" type="TextureRect" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("6_wxoue")
+
+[node name="Heart3" type="TextureRect" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("6_wxoue")
+
+[node name="GameOverScreen" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="CanvasLayer/GameOverScreen"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "GAME OVER"
+horizontal_alignment = 1
+vertical_alignment = 1
