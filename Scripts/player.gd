@@ -67,7 +67,6 @@ func _on_area_2d_body_entered(body):
 func game_over() -> void:
 	var game_over_screen = get_parent().get_node("CanvasLayer/GameOverScreen")
 	game_over_screen.visible = true
-	var new_scene = get_parent().get_node("ScreenPlay")
 	
 	await get_tree().create_timer(2.0).timeout
 	
