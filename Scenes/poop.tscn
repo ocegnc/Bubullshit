@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://do7pwycq2d3nv"]
+
+[ext_resource type="Texture2D" uid="uid://bqsx4d61lq1gp" path="res://Assets/poop.png" id="1_wxj0k"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_c7ex0"]
+
+[node name="poop" type="CharacterBody2D"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-352, 156)
+texture = ExtResource("1_wxj0k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-353, 164)
+shape = SubResource("CircleShape2D_c7ex0")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://rfwlribge6v0"]
+[gd_scene load_steps=10 format=3 uid="uid://rfwlribge6v0"]
 
 [ext_resource type="PackedScene" uid="uid://bfac5nk1dcy4p" path="res://Scenes/player.tscn" id="1_2xf6h"]
 [ext_resource type="Texture2D" uid="uid://c8mc50j7a10u8" path="res://Assets/background_bubblebuttz_latest.png" id="1_tte5k"]
@@ -6,8 +6,11 @@
 [ext_resource type="PackedScene" uid="uid://w2kwt5tw57c2" path="res://Scenes/sample_scene.tscn" id="3_yvscu"]
 [ext_resource type="PackedScene" uid="uid://du4oxux7xur35" path="res://Scenes/screen_play.tscn" id="5_4w8qf"]
 [ext_resource type="Texture2D" uid="uid://dud4t0x2jqjee" path="res://Assets/heart_icon.png" id="6_wxoue"]
+[ext_resource type="PackedScene" uid="uid://do7pwycq2d3nv" path="res://Scenes/poop.tscn" id="7_dvm6d"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kuwt8"]
+
+[sub_resource type="Theme" id="Theme_3xai4"]
 
 [node name="Game" type="Node2D"]
 position = Vector2(0, 16)
@@ -111,6 +114,9 @@ offset_right = 54.0
 offset_bottom = 88.5
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_3xai4")
 text = "GAME OVER"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="poop" parent="." instance=ExtResource("7_dvm6d")]
